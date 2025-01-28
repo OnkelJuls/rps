@@ -28,30 +28,32 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice){
-        console.log(`It's a tie! both chose ${humanChoice}`)
+        console.log(`\n%cIt's a tie! both chose ${humanChoice}`, "color:lightblue")
     } else if ((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")){
-        console.log(`You won! ${humanChoice} beats ${computerChoice}!`);
+        console.log(`\n%cYou won! ${humanChoice} beats ${computerChoice}!`, "color:green");
         humanScore++;
     } else{
-        console.log(`You lost! ${computerChoice} beats ${humanChoice}!`)
+        console.log(`\n%cYou lost! ${computerChoice} beats ${humanChoice}!`, "color:red")
         computerScore++;
     }
   }  
 
 function playGame(){
-    console.log("---starting the game---");
+    console.log("%c---starting the game---", "color:orange");
     for (let i = 0; i < 5; i++){
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
+        console.log(`%cHuman Score: ${humanScore}`, "color:#FF1493");
+        console.log(`%cComputer Score ${computerScore}`, "color:#66CDAA");
     }
     if(humanScore > computerScore){
-        console.log("Human won the game!")
+        console.log("\n \n%cHuman won the game!", "color:green")
     }else if( humanScore < computerScore){
-        console.log("Computer won the game!")
+        console.log("\n \n%cComputer won the game!", "color:red")
     }else {
-        console.log("Its a TIE!")
+        console.log("\n \n%cIts a TIE!", "color:lightblue")
     }
 }
 
